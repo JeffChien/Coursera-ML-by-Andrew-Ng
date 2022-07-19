@@ -1,0 +1,5 @@
+.DS_Store
+*.lock
+*.pyc
+.vscode
+ex6/data/corpus
