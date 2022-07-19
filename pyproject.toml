@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "coursera_ml"
+version = "0.1.0"
+description = ""
+authors = ["JChien <jeffchien13@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "~3.10"
+ipython = "^8.4.0"
+octave-kernel = "^0.34.2"
+scipy = "^1.8.1"
+pandas = "^1.4.3"
+nbformat = "^5.4.0"
+matplotlib = "^3.5.2"
+scikit-learn = "^1.1.1"
+nltk = "^3.7"
+ipympl = "^0.9.1"
+
+[tool.poetry.dev-dependencies]
+black = {version = "^22.6.0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
