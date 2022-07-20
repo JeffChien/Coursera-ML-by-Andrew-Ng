@@ -8,4 +8,7 @@ __all__ = [
     "one_vs_all",
     "predict_one_vs_all",
     "predict",
+    "vectorized_predict",
+    "dense",
+    "sequencial",
 ]

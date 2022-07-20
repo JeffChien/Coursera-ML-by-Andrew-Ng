@@ -116,3 +116,53 @@ def predict(Theta1, Theta2, X):
     a3 = sigmoid(z3)
 
     return np.argmax(a3, axis=1) + 1
+
+
+#%%[markdown]
+# # Vectorized NN forward propagation
+#
+# try to mimic API from tensorflow.
+#
+# In the newer version of Andrew's ML course, the demension order of Weight(Theta) matrix in each layer has changed.
+#
+# In order to mimic API, I have to pass transposed Weight(Theta) to the vectorized implementation
+
+#%%
+def dense(A, W, g):
+    """Vectorized NN layer
+
+    A is input matrix
+    W is transposed Theta
+    g is activation function
+    """
+
+    m = A.shape[0]
+    Z = np.c_[(np.ones((m, 1))), A] @ W
+    return g(Z)
+
+
+#%%
+def sequencial(A, Ws, g):
+    """Vectorized NN forward propagation
+
+    A is input matrix
+    Ws is list of transposed Thetas
+    g is activation function
+    """
+
+    for W in Ws:
+        A = dense(A, W, g)
+    return A
+
+
+#%%
+def vectorized_predict(A, Ws, g):
+    """Vectorized NN predict function
+
+    A is input matrix
+    Ws is list of transposed Thetas
+    g is activation function
+    """
+
+    f_x = sequencial(A, Ws, g)
+    return np.argmax(f_x, axis=1) + 1
