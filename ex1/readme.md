@@ -8,4 +8,5 @@
 | (opt) Feature normalization                   |   ✅   |   ✅   |
 | (opt) Compute cost for multiple variables     |   ✅   |   ✅   |
 | (opt) Gradient descent for multiple variables |   ✅   |   ✅   |
-| (opt)Normal Equations                         |   ✅   |   ✅   |
+| (opt) Normal Equations                        |   ✅   |   ✅   |
+| (opt) Stochastic Gradient descent             |   ✅   |   ✅   |

@@ -40,6 +40,26 @@ def gradient_descent(X, y, theta, alpha, num_iters):
     return theta, j_history
 
 
+#%%
+def mini_batch_gradient_descent(X, y, theta, alpha, num_iters, batch_size=10):
+    m = X.shape[0]
+    j_history = np.empty(0)
+    theta_history = np.empty((0, 2))
+    for i in range(num_iters):
+        for start in range(0, m, batch_size):
+            sample_X = X[start : start + batch_size]
+            sample_y = y[start : start + batch_size]
+            sample_m = X.shape[0]
+            new_theta = theta - (alpha / sample_m) * (
+                ((theta @ sample_X.T) - sample_y) @ sample_X
+            )
+            J = compute_cost(sample_X, sample_y, new_theta)
+            j_history = np.append(j_history, J)
+            theta_history = np.vstack((theta_history, new_theta))
+            theta = theta_history[-1]
+    return theta_history, j_history
+
+
 # %%
 def feature_normalize(X: npt.NDArray):
     mu = X.mean(0)
